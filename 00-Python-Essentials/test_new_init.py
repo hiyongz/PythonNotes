@@ -6,7 +6,7 @@
 
 # __new__和__init__
 # https://zhuanlan.zhihu.com/p/35943253
-class Person():
+class Person(object):
     def __new__(cls, *args, **kwargs):
         # print(cls)
         print("__new__ is called")
@@ -64,21 +64,23 @@ class FruitFactory(object):
 
 
 if __name__ == '__main__':
-    # p1 = Person("zhangsan",26)
-    # print(p1)
-    # print(p1.name)
-    # p2 = Person("lishi",25)
-    # print(p2)
-    # print(p2.name)
+    p1 = Person("zhangsan",26)
+    print(p1)
+    print(p1.name)
+    p2 = Person("lishi",25)
+    print(p2)
+    print(p2.name)
 
-    # p1 = Singleton("zhangsan",26)
-    # print(p1)
-    # print(p1.name)
-    # p2 = Singleton("lishi", 25)
-    # print(p2)
-    # print(p2.name)
+    p1 = Singleton("zhangsan",26)
+    print(p1)
+    print(p1.name)
+    p2 = Singleton("lishi", 25)
+    print(p2)
+    print(p2.name)
 
     fruit1 = FruitFactory("apple")
     fruit2 = FruitFactory("orange")
+    print(fruit1)
+    print(fruit2)
     fruit1.print_color()
     fruit2.print_color()
