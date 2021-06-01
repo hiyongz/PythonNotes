@@ -11,6 +11,10 @@ class Person():
         self.age = x
         self.height = y
 
+    def __new__(cls, *args, **kwargs):
+        print("begin!!!")
+        return object.__new__(cls)
+
     def __call__(self, *args, **kwargs):
         print("hello!!!")
 
@@ -20,6 +24,7 @@ class Person():
 
 p = Person(20, 180)
 print(p)
+p()
 print(p.__dict__)
 p.__dict__['age']=22
 print(p.__dict__)
@@ -46,12 +51,21 @@ print(getattr(p,"talk"))
 print(getattr(p.talk, "__call__"))
 
 if hasattr(p,'walk'):
-    print(getattr(p,'show'))
+    print(getattr(p,'walk'))
 else:
     print("I can't walk")
+print(getattr(p, "walk", None))
 
 setattr(p,'walk','ON')
 if hasattr(p,'walk'):
-    print(getattr(p,'show'))
+    print(getattr(p,'walk'))
 else:
     print("I can't walk")
+print(p.__dict__)
+
+delattr(p,'walk')
+if hasattr(p,'walk'):
+    print(getattr(p,'walk'))
+else:
+    print("I can't walk")
+print(p.__dict__)
