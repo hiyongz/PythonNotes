@@ -6,48 +6,50 @@
 
 # __new__和__init__
 # https://zhuanlan.zhihu.com/p/35943253
+# class Person(object):
+#     def __new__(cls, *args, **kwargs):
+#         print("__new__ is called")
+#         return object.__new__(cls)
+#
+#     def __init__(self, x, y):
+#         print("__init__ is called")
+#         self.name = x
+#         self.height = y
+
+# class Singleton(object):
+#     # 单例模式
+#     _instance = None
+#     def __new__(cls, *args, **kwargs):
+#         print("__new__ is called")
+#         if cls._instance is None:
+#             cls._instance = object.__new__(cls)
+#         return cls._instance
+#
+#     def __init__(self,x, y):
+#         print("__init__ is called")
+#         self.name = x
+#         self.height = y
+
 class Person(object):
-    def __new__(cls, *args, **kwargs):
-        # print(cls)
-        print("__new__ is called")
-        return object.__new__(cls)
-
-    def __init__(self,name,age):
+    def __init__(self, name, height):
         print("__init__ is called")
         self.name = name
-        self.age = age
+        self.height = height
+    def talk(self):
+        print("hello")
 
-class Singleton(object):
-    # 单例模式
-    print("__new__ is called")
-    _instance = None
-    def __new__(cls, *args, **kwargs):
-        if cls._instance is None:
-            cls._instance = object.__new__(cls)
-
-        return cls._instance
-    def __init__(self,name,age):
-        print("__init__ is called")
+class Child(Person):
+    def __init__(self, name, height):
+        super().__init__(name, height)
         self.name = name
-        self.age = age
+        self.height = height
 
-class Fruit(object):
-    def __init__(self):
-        pass
+    def print_name(self):
+        print(self.name)
 
-    def print_color(self):
-        pass
-
-class Apple(Fruit):
-    def __init__(self):
-        pass
-
-    def print_color(self):
-        print("apple is in red")
-
-class Orange(Fruit):
-    def __init__(self):
-        pass
+class Parent(Person):
+    def __init__(self, name, height):
+        super().__init__(name, height)
 
     def print_color(self):
         print("orange is in orange")
@@ -64,23 +66,24 @@ class FruitFactory(object):
 
 
 if __name__ == '__main__':
-    p1 = Person("zhangsan",26)
+    # p1 = Person("zhangsan",180)
+    # print(p1)
+    # print(p1.name)
+    # p2 = Person("lishi",175)
+    # print(p2)
+    # print(p2.name)
+
+    p1 = Singleton("zhangsan",180)
     print(p1)
     print(p1.name)
-    p2 = Person("lishi",25)
+    p2 = Singleton("lishi", 175)
     print(p2)
     print(p2.name)
-
-    p1 = Singleton("zhangsan",26)
-    print(p1)
     print(p1.name)
-    p2 = Singleton("lishi", 25)
-    print(p2)
-    print(p2.name)
-
-    fruit1 = FruitFactory("apple")
-    fruit2 = FruitFactory("orange")
-    print(fruit1)
-    print(fruit2)
-    fruit1.print_color()
-    fruit2.print_color()
+    #
+    # fruit1 = FruitFactory("apple")
+    # fruit2 = FruitFactory("orange")
+    # print(fruit1)
+    # print(fruit2)
+    # fruit1.print_color()
+    # fruit2.print_color()
