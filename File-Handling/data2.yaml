@@ -1,0 +1,8 @@
+'123': 123
+step:
+- action: click
+  by: id
+  locator: name
+- action: click
+  by: id
+  locator: name2
