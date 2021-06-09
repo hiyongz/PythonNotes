@@ -67,7 +67,7 @@ class MySerial():
             interCharTimeout=None
         )
 
-        if ser is None:
+        if self.ser is None:
             print("can't open serial")
             self.ser.write('automate_interface fflush')
             self.ser.write('\n')
@@ -78,11 +78,11 @@ class MySerial():
         print("enter loop")
         try:
             while 1:
-                list_data=ser.readlines()
+                list_data=self.ser.readlines()
                 if list_data:
-                    g_data = "".join(list_data)
+                    self.g_data = "".join(list_data)
                     timedate = "\n/******"+time.ctime()+"******/\n\n"
-                    text = timedate + g_data
+                    text = timedate + self.g_data
                     self.f.write(text)
                     self.f.flush()
         except KeyboardInterrupt:
@@ -95,16 +95,23 @@ class MySerial():
 
 
 class MySocketServer(MySerial):
-    def __init__(self,host, port):
+    def __init__(self):
         super(MySocketServer, self).__init__()
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        sock.bind((self.HOST, int(self.PORT)))
+        sock.listen(10)
+
+    def init_socket(self,host, port):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         sock.bind((host, port))
         sock.listen(10)
+        return sock
 
-    def socket_accept(self,host,port=int(PORT)):
-        global ser,button,g_data,FLAG
-        sock = init_socket(host,port)
+    def socket_accept(self,host):
+        port = int(self.PORT)
+        sock = self.init_socket(host,port)
         inputs=[sock]
         # print("sock = ",inputs
         while 1:
@@ -131,21 +138,21 @@ class MySocketServer(MySerial):
                                         #3.send
                     else:                #只要客户端不关闭连接，那么就会一直
                         #print("7777777778888888888888888888",recv_from_cli
-                        global f,ser
+                        # global f,ser
                         cmd="""\x0d\x0a"""
                         # ser.write(cmd)
                         # ser.flushInput()
                         #time.sleep(0.4)
-                        ser.flushInput()
-                        ser.write(recv_from_cli+cmd)
+                        self.ser.flushInput()
+                        self.ser.write(recv_from_cli+cmd)
                         time.sleep(0.1)
 
                         for x in range(10):
                             # print("g_data============================= = ",g_data
                             if 'reboot' not in recv_from_cli:
-                                if re.search(r'# ',g_data):
-                                    G_data=g_data
-                                    g_data=''
+                                if re.search(r'# ',self.g_data):
+                                    G_data=self.g_data
+                                    self.g_data=''
                                     # print("find # ..................:\n",G_data
                                     try:
                                         r.sendall(G_data)
@@ -156,27 +163,33 @@ class MySocketServer(MySerial):
                                     time.sleep(0.1)
                                     print("wait 0.1ssss!")
                         try:
-                            if not g_data:
-                                g_data='no g_data'
-                            r.sendall(g_data)
+                            if not self.g_data:
+                                self.g_data='no g_data'
+                            r.sendall(self.g_data)
                         except Exception as e:
                             print(e)
 
 
     
 if __name__ == '__main__':
+    Serial1 = MySerial()
+    Serial1.open_logfile()
+    Serial1.connect_serial()
+
+    sers = MySocketServer()
     threads = []
     # ThreadFuncs = [tcpser,PyAutoTest]
-    ThreadFuncs = [PyAutoTest]
+
+    ThreadFuncs = [sers.socket_accept]
     for ThreadFunc in ThreadFuncs:
-        t = MyThread(ThreadFunc, (HOST))
+        t = MyThread(ThreadFunc, (sers.HOST))
         t.setDaemon(True)
         threads.append(t)
 
     for thread in threads:
         thread.start()
 
-    loop()
+    sers.loop_read_write()
     
  
 

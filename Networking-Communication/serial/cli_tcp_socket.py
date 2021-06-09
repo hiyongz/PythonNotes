@@ -28,33 +28,24 @@ class MyClient():
             self.expe = kargs['expe']
         else:
             self.expe = 'pass'
-        if kargs.has_key('iface'):
-            self.expe = kargs['iface']
-        else:
-            self.expe = 'br0'
-        if kargs.has_key('ip'):
-            self.ip = kargs['ip']
-        else:
-            # self.expe =G_MainDict['dut']['dip']
-            self.expe = '192.168.5.1'
-        if kargs.has_key('expe'):
-            self.expe = kargs['expe']
-        else:
-            self.expe = 'pass'
+
         if kargs.has_key('baudrate'):
             self.baudrate = kargs['baudrate']
         else:
             self.baudrate = 115200
+
         if kargs.has_key('port'):
             self.port = kargs['port']
         else:
             self.port = 'COM1'
+
         if kargs.has_key('PORT'):
             self.PORT = kargs['PORT']
             self.PORT = int(self.PORT)
             print("PORT=", self.PORT)
         else:
-            self.PORT = 12346
+            self.PORT = 12345
+
         ip_port = ('127.0.0.1', self.PORT)
         self.ip_port = ip_port
         try:
@@ -62,11 +53,7 @@ class MyClient():
         except Exception as e:
             print("not open socket")
         print("-------connect success-------")
-        # self.reset()
-        if kargs.has_key('reset'):
-            if kargs['reset'] == 'yes':
-                self.reset()
-        print("____reset_____")
+
         self.close()
 
     def socket_connect(self):
@@ -75,22 +62,18 @@ class MyClient():
         self.sk.connect_ex(self.ip_port)
         return self.sk
 
-
     @catch_exception
     def login(self):
         # 循环三次进行登录判断
         def revlog():
             self.waitTime(4)
             logindata = self.readfromcom()
-            print
-            "logindata", logindata
+            print("logindata", logindata)
             if logindata.find("~ #") >= 0:
-                print
-                u"登录成功"
+                print(u"登录成功")
                 return True
             else:
-                print
-                u"第%d次登录失败" % (i)
+                print(u"第%d次登录失败" % (i))
 
         for i in range(4):
             try:
@@ -101,6 +84,12 @@ class MyClient():
             except:
                 pass
         return False
+
+    def close(self):
+        self.sk.close()
+        # print "close  suc!"
+        return True
+
     @catch_exception
     def sendCmd(self,cmd):
         # print "cmd",cmd
@@ -109,7 +98,7 @@ class MyClient():
             # alldata=self.sk.recv(4096)
             return True
         except socket.error as e:
-            print "error",e
+            print("error",e)
             return False
     def recv_cmd(self):
         alldata=""
@@ -118,7 +107,7 @@ class MyClient():
             # print "alldata",alldata
             return alldata
         except socket.error as e:
-            print "error",e
+            print("error",e)
     def readfromcom(self):
         alldata=""
         while True:
@@ -126,5 +115,5 @@ class MyClient():
             if data:
                 alldata = "".join(data)
                 break
-        print "alldata=",alldata
+        print("alldata=",alldata)
         return alldata

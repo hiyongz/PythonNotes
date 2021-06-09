@@ -9,7 +9,7 @@ baudrate
 '''
 import socket,serial,threading,time,signal,os,sys,re,select
 import json
-# from PIL._imagingmorph import apply
+# from PIL._imagingmorph iminit_socketport apply
 
 
 

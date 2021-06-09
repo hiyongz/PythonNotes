@@ -8,21 +8,42 @@ import serial
 from serial import *
 import serial.tools.list_ports
 
-plist = list(serial.tools.list_ports.comports())
 
-# python -m serial.tools.list_ports
+class TestSerial():
+    def __init__(self,com):
+        self.serialName = com
 
-if len(plist) <= 0:
-    print("没有发现端口!")
-else:
-    plist_0 = list(plist[0])
-    serialName = plist_0[0]
-    serialFd = serial.Serial(serialName, 9600, timeout=60)
+        plist = list(serial.tools.list_ports.comports())
+        # python -m serial.tools.list_ports
+        if len(plist) <= 0:
+            print("没有发现端口!")
+            sys.exit()
+        else:
+            for s in plist:
+                if self.serialName == s.name:
 
-print("可用端口名>>>", serialFd.name)
+                    break
+            print(f"没有发现{self.serialName}端口!")
+            sys.exit()
 
-if serialFd.isOpen():
-    print("open success")
-else:
-    print("open failed")
+        serialFd = serial.Serial(self.serialName, 115200, timeout=60)
 
+        print("可用端口名>>>", serialFd.name)
+
+        if serialFd.isOpen():
+            print("open success")
+        else:
+            print("open failed")
+
+if __name__ == '__main__':
+    plist = serial.tools.list_ports.comports()
+    for s in plist:
+        print(s.name)
+
+    serialFd = serial.Serial("COM4", 115200, timeout=60)
+    if serialFd.isOpen():
+        print("open success")
+    else:
+        print("open failed")
+
+    # ser = TestSerial("COM4")
