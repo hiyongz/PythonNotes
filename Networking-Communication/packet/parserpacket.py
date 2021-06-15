@@ -81,7 +81,7 @@ class ParserPacketMethod():
         display_field = '' 
         display_filt = ''       
         if self.display_filter != '':
-            display_filt = copy.copy(self.display_filter) # 深拷贝
+            display_filt = copy.copy(self.display_filter) # 浅拷贝
             # print("display_filt:", display_filt)
             for filter_i, value in enumerate(self.display_filter):
                 if "==" not in value:
@@ -118,11 +118,7 @@ class ParserPacketMethod():
             for element in display_ret.split("\n")[:-1]:
                 print("EPOCH-TIME:%s"%element)
 
-    def parser_tshark_packet(self):
-        # self.package = 'd:/packet-solicit.pcap' 
-        # 杀死tcpdump进程
-        # p = Popen("killall -9 tcpdump", stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=True)
-     
+    def parser_tshark_packet(self):     
         display_field,display_filt = self.arg_display_filter()
         ###### 2、处理字段过滤条件 ：分别提取字段field和对应的值value，对应tshark命令的-e参数 ###### 
         filter_list = self.filters.split(",")        
@@ -200,8 +196,7 @@ class ParserPacketMethod():
                         elif value_list[index] in values2:
                             location.append(i)
                 if self.return_flag == 1:
-                    print("%s:%s"%(field,fieldvalue))
-
+                    print("FieldValue:", fieldvalue)
                 sumlocation.append(location)
                 # print("sumlocation:",sumlocation)
                 location = []
@@ -309,6 +304,12 @@ class ParserPacket(ArgParser,ParserPacketMethod):
         # 1、tshark解包：过滤规则可以通过wireshark获取
         # 2、scapy工具解包：用于查找某指定协议报文字段
         # print("self.filters:",self.filters)
+        # 判断报文文件是否存在
+        if not os.path.isfile(self.package):
+            print("文件 %s 不存在, 请检查-p参数是否正确"%self.package)
+            print("FAIL")
+            sys.exit()
+            
         if self.filters != '' and self.filters != 'frame.time_epoch':
             # 方法1
             self.parser_tshark_packet()

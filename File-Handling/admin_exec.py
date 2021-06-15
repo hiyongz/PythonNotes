@@ -2,8 +2,8 @@
 # from __future__ import print_function
 import ctypes, sys
 import os
-name="eth3"
-address="192.168.10.3"
+name="eth2"
+address="192.168.10.2"
 mask = '255.255.255.0'
 cmd = 'netsh interface ip set address name=%s source=static address=%s mask=%s'%(name,address,mask)
 print cmd
