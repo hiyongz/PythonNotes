@@ -21,6 +21,6 @@ print(f"field: {args.field}")
 print(f"display-filter: {args.display_filter}")
 print(f"count: {args.count}")
 print(f"type(count): {type(args.count)}")
-args = parser.parse_args(['-c2'])
+args = parser.parse_args(['-c3'])
 print(f"count: {args.count}")
 
