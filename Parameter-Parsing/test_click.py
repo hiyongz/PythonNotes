@@ -12,10 +12,12 @@ import click
 # @click.option('--display-filter', '-Y', prompt='display-filter', type=(str, int, float, bool), help='条件')
 @click.option('--count', '-c', default=2, prompt='count', help='计数', count=True)
 # @click.help_option('--help', '-h', help='帮助信息')
-def cli(field, display_filter,count):
+# @click.option('--password', '-p', prompt=True, hide_input=True, confirmation_prompt=True)
+@click.password_option('--password', '-p', prompt=True, hide_input=True, confirmation_prompt=True)
+def cli(field, display_filter,count,password):
     """Simple program that greets NAME for a total of COUNT times."""
-
-    click.echo(f'{field} {display_filter} {count}')
+    # click.echo(f'{field} {display_filter} {count}')
+    click.echo(f'the password is {password}')
 
 if __name__ == '__main__':
     cli()
