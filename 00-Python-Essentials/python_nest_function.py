@@ -5,6 +5,7 @@
 # @File:    python_nest_function.py
 
 # Python 嵌套函数
+from sys import getrefcount
 
 VALUE1 = 666
 
@@ -20,10 +21,14 @@ def TestFunc(val1):
 def TestFunc2():
     global VALUE1
     VALUE1 = VALUE1 + 1
+    VALUE2 = 2
     print(VALUE1)
+    print(locals())
 
 def TestFunc3():
     VALUE1 = 2
+    print(locals())
+    # print(globals())
     print(VALUE1)
 
 
@@ -38,11 +43,11 @@ def TestFunc4():
 
 # TestFunc('Hello world')
 
-# TestFunc2()
+TestFunc2()
 # print(VALUE1)
 
 # TestFunc3()
 # print(VALUE1)
 
-TestFunc4()
+# TestFunc4()
 
