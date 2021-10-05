@@ -2,7 +2,7 @@
 ========================================
 
 本文档基于Python相关笔记，可以关注下面的公众号及时接收最新技术文章：
-.. image:: /img/wechat.png
+.. image:: ../img/wechat.png
 
 .. toctree::
    :maxdepth: 2
