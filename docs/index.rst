@@ -1,11 +1,5 @@
-测试开发笔记
+Python笔记
 ========================================
-
-本文档基于Python相关笔记，可以关注下面的公众号及时接收最新技术文章：
-
-.. image:: /img/wechat.png
-   :scale: 20%
-   :align: center
 
 .. toctree::
    :maxdepth: 2
@@ -38,3 +32,10 @@
    python/python-library-for-json.md
    python/python-library-for-pyyaml.md
    python/python-scapy-for-packet-build-and-parser.md
+   
+
+可以关注下面的公众号及时接收最新技术文章：
+
+.. image:: /img/wechat.png
+   :scale: 20%
+   :align: center
