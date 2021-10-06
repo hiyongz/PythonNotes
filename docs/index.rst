@@ -34,7 +34,7 @@ Python笔记
    python/python-scapy-for-packet-build-and-parser.md
    
 
-可以关注下面的公众号及时接收最新技术文章：
+关注公众号【测试开发小记】及时接收最新技术文章！
 
 .. image:: /img/wechat.png
    :scale: 20%
