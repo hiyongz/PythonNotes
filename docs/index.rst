@@ -36,7 +36,7 @@ Python笔记
 
 .. toctree::
    :maxdepth: 1   
-   :caption: 算法笔记
+   :caption: 数据结构与算法
 
    algorithm/algorithm-notes-for-algorithmic-complexity.md
    algorithm/algorithm-notes-for-linear-list.md
