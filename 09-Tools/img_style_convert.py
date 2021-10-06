@@ -24,14 +24,14 @@ def img_convert(file):
             if re.search("^<img.*/>$", line):
                 img_name = re.findall(reg_img, line)[0]  # 图片名称
                 print(line)
-                line1 = f"![]({filename}/{img_name})"
+                line1 = f"![]({filename}/{img_name})\n"
                 print(line1)
                 lines.append(line1)
                 continue
             if re.search(reg_img2, line):
                 img_name = re.findall(reg_img3, line)[0]  # 图片名称
                 print(line)
-                line2 = f"![]({filename}/{img_name})"
+                line2 = f"![]({filename}/{img_name})\n"
                 lines.append(line2)
                 print(line2)
                 continue
