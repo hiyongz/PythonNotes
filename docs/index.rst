@@ -2,7 +2,7 @@ Python笔记
 ========================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Python基础知识
    
    python/Python-Enhancement-Proposals.md
@@ -20,7 +20,7 @@ Python笔记
    
 
 .. toctree::
-   :maxdepth: 2   
+   :maxdepth: 1   
    :caption: Python进阶
    
    python/python-notes-for-anonymous-function.md
