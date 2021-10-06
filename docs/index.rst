@@ -34,6 +34,20 @@ Python笔记
    python/python-scapy-for-packet-build-and-parser.md
    
 
+.. toctree::
+   :maxdepth: 1   
+   :caption: 算法笔记
+
+   algorithm/algorithm-notes-for-algorithmic-complexity.md
+   algorithm/algorithm-notes-for-linear-list.md
+   algorithm/algorithm-notes-for-hash-table.md
+   algorithm/algorithm-notes-for-graph-tree-and-heap.md
+   algorithm/algorithm-notes-for-dfs-bfs.md
+   algorithm/algorithm-notes-for-binary-search.md
+   algorithm/algorithm-notes-for-dynamic-programming.md   
+   algorithm/algorithm-notes-for-bitwise-operation.md
+   algorithm/algorithm-notes-for-sorting-algorithms.md
+
 关注公众号【测试开发小记】及时接收最新技术文章！
 
 .. image:: /img/wechat.png
