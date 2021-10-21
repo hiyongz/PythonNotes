@@ -29,6 +29,8 @@ Python笔记
    python/python-notes-for-reflection.md
    python/python-notes-for-multi-process.md
    python/python-notes-for-coroutines.md
+   python/linux-regular-expression-and-python-regex.md
+   python/linux-regular-expression-for-multiple-lines.md
    python/python-library-for-json.md
    python/python-library-for-pyyaml.md
    python/python-scapy-for-packet-build-and-parser.md
