@@ -107,4 +107,51 @@ def get_median(data):
 ```python
 from functools import reduce
 ```
+# 列表排列组合
+列表排列组合可以使用迭代器模块itertools
 
+## 列表排列
+```python
+import itertools
+
+l = [1, 2, 3]
+print(list(itertools.permutations(l, 2)))
+print(list(itertools.permutations(l, 3)))
+```
+结果：
+```python
+[(1, 2), (1, 3), (2, 1), (2, 3), (3, 1), (3, 2)]
+[(1, 2, 3), (1, 3, 2), (2, 1, 3), (2, 3, 1), (3, 1, 2), (3, 2, 1)]
+```
+
+## 组合
+```python
+import itertools
+
+l = [1, 2, 3]
+print(list(itertools.combinations(l, 2)))
+```
+结果：
+```python
+[(1, 2), (1, 3), (2, 3)]
+```
+
+## 多个列表元素组合：笛卡尔积
+两个列表元素两两组合：
+```python
+import itertools
+
+l = [1, 2, 3]
+l1 = [11, 12, 13]
+l2 = [21, 22, 23]
+# 笛卡尔积
+print(list(itertools.product(l, l)))
+print(list(itertools.product(l, repeat=2)))
+print(list(itertools.product(l1, l2)))
+```
+结果：
+```python
+[(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3), (3, 1), (3, 2), (3, 3)]
+[(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3), (3, 1), (3, 2), (3, 3)]
+[(11, 21), (11, 22), (11, 23), (12, 21), (12, 22), (12, 23), (13, 21), (13, 22), (13, 23)]
+```
