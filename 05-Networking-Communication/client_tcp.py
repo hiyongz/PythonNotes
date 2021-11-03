@@ -16,7 +16,7 @@ while True:
     message = tcpCliSock.recv(BUFSIZ)
     if not data:
         break
-    print "="*20
+    print("=" * 20)
     print "[From Servier]:",message
 
 tcpCliSock.close()
