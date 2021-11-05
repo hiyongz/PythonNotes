@@ -34,6 +34,7 @@ Python笔记
    python/python-library-for-json.md
    python/python-library-for-pyyaml.md
    python/python-scapy-for-packet-build-and-parser.md
+   python/python-notes-for-pil-problem.md
    
 
 .. toctree::
