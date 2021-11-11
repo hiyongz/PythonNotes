@@ -1,5 +1,6 @@
 # -*-coding:utf-8-*-
 import itertools
+import re
 from functools import reduce
 
 
@@ -55,6 +56,32 @@ class mac_generate():
         macs = list(map(lambda x: x[0] + x[1] + ":" + x[2] + x[3] + ":" + x[4] + x[5], mac_list))
         # print(macs)
         return macs
+
+
+    def parser_err_mac(self, xml_path="D:/attrobot3/report/output.xml", log_path="D:/attrobot3/report/err-mac.log"):
+        reg1 = "REBOOT-TESTERR"
+        reg2 = r"([0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5})"
+        res_list = []
+        with open(xml_path, encoding='UTF-8') as file:
+            for index, line in enumerate(file):
+                res1 = re.findall(reg1, line)
+                res2 = re.findall(reg2, line)
+                if res1:
+                    res_list.append(res1[0])
+                if res2:
+                    res_list.append(res2[0][0])
+
+            err_mac_list = []
+            for index, content in enumerate(res_list):
+                if content == "REBOOT-TESTERR":
+                    err_mac_list.append(res_list[index + 1])
+            self._err_mac_save(err_mac_list,log_path)
+        return err_mac_list
+
+    def _err_mac_save(self, data, path="D:/attrobot3/report/err-mac.log"):
+        with open(path, 'w') as f:
+            for line in data:
+                f.write('%s\n' % line)
 
     def _macs(self):
         if self.macs is None:
