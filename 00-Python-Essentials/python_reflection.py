@@ -28,6 +28,7 @@ p()
 print(p.__dict__)
 p.__dict__['age']=22
 print(p.__dict__)
+
 p.weight = 60
 print(p.__dict__)
 print(dir(p))
