@@ -113,28 +113,54 @@ class TestFile(TestDir):
         file.write(text)  # 追加内容
         file.close()
 
+
+
+    def write_file(self):
+        # 写文件
+        file = open("newfile.txt", 'w')
+        text1 = "Hello World!\n你好，世界！\r"
+        file.write(text1)  # 写入内容信息
+
+        text2 = ["To the time to life, \n", "rather than to life in time.\r"]
+        file.writelines(text2)
+
+        file.close()
+
+
+
     def read_file(self):
         # 打开并读取文件
         file = open(self.newfilepath, 'r')
-        print(file.read())  # read()执行完后，文本的光标会移动到最后，再次读取file需要将光标移到前面
 
-        file.seek(0, 0)
         for line in file:
             print(line)
+        print()
+
+        file.seek(0, 0)
+        print(file.read(5))  # read()执行完后，文本的光标会移动到最后，再次读取file需要将光标移到前面
+        print()
+
+        file.seek(0, 0)
+        print(file.readline(12))
+        print()
+
+        file.seek(0, 0)
+        print(file.readlines())
+        print()
+
         file.close()
 
-    def read_file2(self):
-        # 打开并读取文件
-        file = open(self.newfilepath, 'r')
-        text = file.read()
-        print(text)
-        for line in text:
-            print(line)
-        file.close()
+    def with_statement(self):
+        text1 = "Hello World!\n你好，世界！\r"
+        text2 = ["To the time to life, \n", "rather than to life in time.\r"]
+        # 写
+        with open("newfile.txt", "w") as file:
+            file.write(text1)
+            file.writelines(text2)
 
-
-
-
+        # 读
+        with open("newfile.txt", "r+") as file:
+            print(file.read())
 
 
 if __name__ == '__main__':
@@ -143,11 +169,14 @@ if __name__ == '__main__':
     file.create_file()
     file.file_exists()
     file.file_access()
-    # file.read_file()
-    # file.read_file2()
-    file.open_file_a()
+
+    # file.open_file_a()
     # file.open_file_x()
     # file.open_file_r_plus()
     # file.open_file_w_plus()
     # file.open_file_a_plus()
     # file.open_file_x_plus()
+    file.write_file()
+    file.read_file()
+    # file.with_statement()
+
