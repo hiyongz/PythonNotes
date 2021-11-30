@@ -17,6 +17,7 @@ Python笔记
    python/python-notes-for-passing-arguments-in-function.md
    python/python-notes-for-new-and-init.md
    python/python-notes-for-object-and-copy.md
+   python/python-notes-for-file-and-direction-handling.md
    
 
 .. toctree::
