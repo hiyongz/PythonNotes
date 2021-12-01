@@ -25,9 +25,10 @@ class TesseractDemo():
 
     def osd_demo(self):
         img = Image.open('osd-example.png')
-        osd = pytesseract.image_to_osd(img)
+        osd = pytesseract.image_to_osd(img,config='--psm 0 -c min_characters_to_try=5')
+        print(osd)
         angle = re.search('(?<=Rotate: )\d+', osd).group(0)
-        script = re.search('(?<=Script: )\d+', osd).group(0)
+        script = re.search('(?<=Script: )\w+', osd).group(0)
         print("angle: ", angle)
         print("script: ", script)
 
