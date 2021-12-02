@@ -23,6 +23,11 @@ class TesseractDemo():
         # Simple image to string
         print(pytesseract.image_to_string(Image.open('test.png'), lang='chi_sim+eng'))
 
+    def multiple_lang_detect(self):
+        img = Image.open('test.png')
+        config = r'-l chi_sim+eng --psm 6'
+        print(pytesseract.image_to_string(img, config=config))
+
     def osd_demo(self):
         img = Image.open('osd-example.png')
         osd = pytesseract.image_to_osd(img,config='--psm 0 -c min_characters_to_try=5')
@@ -32,6 +37,27 @@ class TesseractDemo():
         print("angle: ", angle)
         print("script: ", script)
 
+    def detect_digit(self):
+        img = Image.open('number-example.png')
+        config = r'--oem 3 --psm 6 outputbase digits'
+        osd = pytesseract.image_to_string(img, config=config)
+        print(osd)
+
+    def whitelist_characters(self):
+        img = Image.open('number-example.png')
+        config = r'-c tessedit_char_whitelist=0123456789 --psm 6'
+        print(pytesseract.image_to_string(img, config=config))
+
+    def blacklist_characters(self):
+        img = Image.open('number-example.png')
+        config = r'-c tessedit_char_blacklist=0123456789 --psm 6'
+        print(pytesseract.image_to_string(img, config=config, lang='chi_sim'))
+
+
 if __name__ == '__main__':
     tes = TesseractDemo()
-    tes.osd_demo()
+    tes.multiple_lang_detect()
+    # tes.osd_demo()
+    # tes.detect_digit()
+    # tes.whitelist_characters()
+    # tes.blacklist_characters()
