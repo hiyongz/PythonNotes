@@ -28,6 +28,7 @@ Python笔记
    python/python-notes-for-decorator.md
    python/python-notes-for-function-closures.md
    python/python-notes-for-reflection.md
+   python/python-notes-for-context-manager.md
    python/python-notes-for-multi-process.md
    python/python-notes-for-coroutines.md
    python/linux-regular-expression-and-python-regex.md
