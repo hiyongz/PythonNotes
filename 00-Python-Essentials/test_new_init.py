@@ -38,6 +38,9 @@ class Person(object):
     def talk(self):
         print("hello")
 
+    def talk2(self):
+        print("hello2")
+
 class Child(Person):
     def __init__(self, name, height):
         super().__init__(name, height)
@@ -54,32 +57,34 @@ class Parent(Person):
     def print_color(self):
         print("orange is in orange")
 
-class FruitFactory(object):
-    fruits = {"apple": Apple, "orange": Orange}
-
-    def __new__(cls, name):
-        if name in cls.fruits.keys():
-            return cls.fruits[name]()
-        else:
-            return Fruit()
+# class FruitFactory(object):
+#     fruits = {"apple": Apple, "orange": Orange}
+#
+#     def __new__(cls, name):
+#         if name in cls.fruits.keys():
+#             return cls.fruits[name]()
+#         else:
+#             return Fruit()
 
 
 
 if __name__ == '__main__':
-    # p1 = Person("zhangsan",180)
+    p1 = Person("zhangsan",180)
+    p1.talk()
+    p1.talk2()
     # print(p1)
     # print(p1.name)
     # p2 = Person("lishi",175)
     # print(p2)
     # print(p2.name)
 
-    p1 = Singleton("zhangsan",180)
-    print(p1)
-    print(p1.name)
-    p2 = Singleton("lishi", 175)
-    print(p2)
-    print(p2.name)
-    print(p1.name)
+    # p1 = Singleton("zhangsan",180)
+    # print(p1)
+    # print(p1.name)
+    # p2 = Singleton("lishi", 175)
+    # print(p2)
+    # print(p2.name)
+    # print(p1.name)
     #
     # fruit1 = FruitFactory("apple")
     # fruit2 = FruitFactory("orange")
