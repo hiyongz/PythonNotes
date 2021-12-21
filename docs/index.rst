@@ -38,6 +38,7 @@ Python笔记
    python/python-scapy-for-packet-build-and-parser.md
    python/python-notes-for-pil-problem.md
    python/personal-blog-for-sphinx-readthedocs-and-github-guide.md
+   python/python-notes-for-ocr-with-tesseract.md
    
 
 .. toctree::
