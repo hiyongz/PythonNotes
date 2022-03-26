@@ -22,23 +22,25 @@ class excelConvert():
             print('当前目录下的xls格式文件：')
             for file in xls_files:
                 print(os.path.basename(file))
-                data = self.readxls(file)
 
                 fname, _ = os.path.splitext(file)
                 basename = os.path.basename(fname)
                 xlsxpathname = os.path.join(self.xlsxpath, basename)
-                self.saveasxlsx(data, xlsxpathname)
+                self.saveasxlsx(file, xlsxpathname)
         else:
             print('该目录下无xls格式文件，即将退出...')
             time.sleep(2)
             os._exit(0)
 
-    def readxls(self, filepath):
-        data = pd.DataFrame(pd.read_excel(filepath))  # 读取xls文件
-        return data
-
-    def saveasxlsx(self, data, filename):
-        data.to_excel(filename + '.xlsx', index=False)  # 保存为xlsx格式
+    def saveasxlsx(self, xlspath, xlsxpath):
+        writer = pd.ExcelWriter(xlsxpath + '.xlsx')
+        # data = pd.DataFrame(pd.read_excel(filepath,sheet_name=None))  # 读取xls文件
+        datas = pd.read_excel(xlspath,sheet_name=None)
+        for sheetname, values in datas.items():
+            pd_look = pd.DataFrame(values)
+            pd_look.to_excel(writer, sheet_name=sheetname)
+        writer.save()
+        writer.close()
 
 if __name__=='__main__':
     excel = excelConvert()
