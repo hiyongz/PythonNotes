@@ -137,7 +137,22 @@ True
 
 `os.access(newfilepath,os.F_OK)` 也可以用于判断文件是否存在。
 
-### 4. 打开文件
+### 4. 获取文件后缀
+
+```python
+fname, fextension = os.path.splitext("D:\\newfile.txt")
+print(fname)
+print(fextension)
+```
+Out：
+
+```python
+D:\newfile
+.txt
+```
+
+
+### 5. 打开文件
 
 打开文本文件或者二进制文件可以使用 `open()` 方法:
 
@@ -168,7 +183,7 @@ f = open(r"D:\test.txt", "w")
 
 
 
-### 5. 写文件
+### 6. 写文件
 
 读写文件都需要先打开文件，返回一个文件对象，然后对文件对象进行读写操作。写文件需要设置写权限，比如 `w`、`w+`、`a` 模式。
 
@@ -198,7 +213,7 @@ file = open("newfile.txt", 'a')
 
 
 
-### 6. 读文件
+### 7. 读文件
 
 常见的读取文件方法有以下几种：
 
@@ -251,7 +266,7 @@ Hello World!
 
 读取file对象的所有内容后，文本的光标会移动到最后，再次读取file需要将光标移到前面，使用 `file.seek(0, 0)` 方法可以将光标移到前面。还有一种解决方案是将读取的内容存一个在局部变量中。
 
-### 7. with语句
+### 8. with语句
 
 with语句可用于异常处理，可以确保资源的适当获取及自动释放。使用with语句后就不需要调用`file.close()` 语句了，它会自动释放。
 
