@@ -66,6 +66,12 @@ class TestFile(TestDir):
         print(os.access(self.newfilepath, os.W_OK))  # 文件是否可以写入
         print(os.access(self.newfilepath, os.X_OK))  # 文件是否有执行权限
 
+    def file_split(self):
+        # fname, fextension = os.path.splitext(self.newfilepath)
+        fname, fextension = os.path.splitext("D:\\newfile.txt")
+        print(fname)
+        print(fextension)
+
     def open_file_a(self):
         # 打开存在的文件，追加操作，不会覆盖先前文件中的内容。
         # file = open(self.newfilepath, 'a')
@@ -165,10 +171,11 @@ class TestFile(TestDir):
 
 if __name__ == '__main__':
     file = TestFile()
-    file.test_path()
+    # file.test_path()
     file.create_file()
-    file.file_exists()
-    file.file_access()
+    file.file_split()
+    # file.file_exists()
+    # file.file_access()
 
     # file.open_file_a()
     # file.open_file_x()
@@ -176,7 +183,7 @@ if __name__ == '__main__':
     # file.open_file_w_plus()
     # file.open_file_a_plus()
     # file.open_file_x_plus()
-    file.write_file()
-    file.read_file()
+    # file.write_file()
+    # file.read_file()
     # file.with_statement()
 
