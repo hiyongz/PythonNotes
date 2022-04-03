@@ -49,12 +49,24 @@ POSIX标准把正则表达式分为两种：BRE（Basic Regular Expressions）�
 | (?!exp)  | 匹配后面不是exp的位置 |
 | (?<!exp)  | 匹配前面不是exp的位置 |
 
+## 正则表达式相关工具
 
-### 正则表达式实例
+正则表达式功能强大，但很难熟练掌握，这里介绍一些学习和搜索正则表达式的工具。
+
 正则表达式在线测试工具：
+
 1. [https://regex101.com/](https://regex101.com/)
 2. [http://c.runoob.com/front-end/854](http://c.runoob.com/front-end/854)
 3. [https://tool.oschina.net/regex](https://tool.oschina.net/regex)
+4. [http://tool.rbtree.cn/regtool/](http://tool.rbtree.cn/regtool/)
+
+正则表达式搜索：
+
+1. [https://ihateregex.io/expr/](https://ihateregex.io/expr/) : 提供了一些常用的正则表达式写法，此外列出了使用到的正则语法。
+
+
+
+## 正则表达式实例
 
 测试文本test.txt
 
@@ -75,20 +87,20 @@ test123test
 
 ```
 
-#### 1. 匹配以字母a开头的单词
+### 1. 匹配以字母a开头的单词
 ```shell
 $ grep '\ba\w*\b' test.txt
 abc
 ```
 
-#### 2. 匹配刚好6个字符的单词
+### 2. 匹配刚好6个字符的单词
 ```shell
 $ grep -E '\b\w{6}\b' test.txt
 123456
 GET123
 ```
 
-#### 3. 匹配1个或更多连续的数字
+### 3. 匹配1个或更多连续的数字
 
 ```shell
 $ grep -Po '\d+' test.txt
@@ -102,7 +114,7 @@ $ grep -Po '\d+' test.txt
 123
 123
 ```
-#### 4. 5位到12位QQ号
+### 4. 5位到12位QQ号
 
 ```shell
 $ grep -P '\d{5,12}' test.txt
@@ -114,19 +126,19 @@ $ grep -P '^\d{5,12}$' test.txt
 123456
 ```
 
-#### 5. 匹配电话号码
+### 5. 匹配电话号码
 ```shell
 $ grep -P '0\d{2}-\d{8}' test.txt
 023-12345678
 ```
 
-#### 6. 只匹配3位数字
+### 6. 只匹配3位数字
 ```shell
 $ grep -P '^\d{3}$' test.txt
 123
 ```
 
-#### 7. 查找单词‘GET’
+### 7. 查找单词‘GET’
 ```shell
 $ grep '\bGET\b' test.txt
 GET 1
@@ -134,14 +146,14 @@ GET
 $ grep '^GET$' test.txt
 GET
 ```
-#### 8. 匹配两个字符之间的内容
+### 8. 匹配两个字符之间的内容
 ```shell
 $ grep -Eo "test(.+?)test" test.txt
 test123test
 $ grep -Po "(?<=test).*?(?=test)" test.txt
 123
 ```
-#### 9. `.*`和`.+`的使用方法
+### 9. `.*`和`.+`的使用方法
 ```sh
 $ text1="fn()"
 $ text2="fn(6)"
