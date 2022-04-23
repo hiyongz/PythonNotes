@@ -87,6 +87,25 @@ if not os.path.exists(path):
     os.makedirs(path)
 ```
 
+### 6. 获取目录下所有文件
+
+有两种方式可以用来获取目录的文件：
+
+1. `os.walk` : 返回当前目录下的文件及子目录的内容
+2. `os.listdir`: 只返回当前目录中所包含的内容
+
+```python
+import os
+
+for root, dirs, files in os.walk(os.getcwd()):
+	print(root)
+	print(dirs)
+	print(files)
+	print("#" * 10)
+print(os.listdir(os.getcwd()))
+```
+
+
 ## 文件操作
 
 ### 1. 创建文本文件
