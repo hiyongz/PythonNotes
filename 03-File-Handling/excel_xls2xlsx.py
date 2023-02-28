@@ -34,11 +34,10 @@ class excelConvert():
 
     def saveasxlsx(self, xlspath, xlsxpath):
         writer = pd.ExcelWriter(xlsxpath + '.xlsx')
-        # data = pd.DataFrame(pd.read_excel(filepath,sheet_name=None))  # 读取xls文件
         datas = pd.read_excel(xlspath,sheet_name=None)
         for sheetname, values in datas.items():
-            pd_look = pd.DataFrame(values)
-            pd_look.to_excel(writer, sheet_name=sheetname)
+            data = pd.DataFrame(values)
+            data.to_excel(writer, sheet_name=sheetname)
         writer.save()
         writer.close()
 

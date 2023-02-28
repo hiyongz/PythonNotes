@@ -37,6 +37,14 @@ class TestDir():
             print(f"创建文件: {path}")
             os.makedirs(path)
 
+    def test_dirfile(self):
+        for root, dirs, files in os.walk(os.getcwd()):
+            print(root)
+            print(dirs)
+            print(files)
+            print("#" * 20)
+        print(os.listdir(os.getcwd()))
+
 
 class TestFile(TestDir):
     def __init__(self):
@@ -170,10 +178,10 @@ class TestFile(TestDir):
 
 
 if __name__ == '__main__':
-    file = TestFile()
+    # file = TestFile()
     # file.test_path()
-    file.create_file()
-    file.file_split()
+    # file.create_file()
+    # file.file_split()
     # file.file_exists()
     # file.file_access()
 
@@ -187,3 +195,6 @@ if __name__ == '__main__':
     # file.read_file()
     # file.with_statement()
 
+    dir = TestDir()
+    # dir.test_path()
+    dir.test_dirfile()
