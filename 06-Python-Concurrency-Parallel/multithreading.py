@@ -9,7 +9,7 @@
 import os
 import threading
 import time
-from multi_process.mytask import Task
+from mytask import Task
 
 class TestThread():
 
