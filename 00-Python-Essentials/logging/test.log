@@ -1,0 +1,36 @@
+2023-02-28 21:14:11,076 - 1677590051.076461 - 3 - 76 - root - WARNING - Warning 级别日志信息
+2023-02-28 21:14:11,077 - 1677590051.077458 - 4 - 77 - root - ERROR - Error 级别日志信息
+2023-02-28 21:14:11,077 - 1677590051.077458 - 4 - 77 - root - CRITICAL - Critical 级别日志信息
+2023-02-28 21:14:21,454 - 1677590061.454705 - 2 - 454 - root - WARNING - Warning 级别日志信息
+2023-02-28 21:14:21,455 - 1677590061.455703 - 3 - 455 - root - ERROR - Error 级别日志信息
+2023-02-28 21:14:21,455 - 1677590061.455703 - 3 - 455 - root - CRITICAL - Critical 级别日志信息
+2023-02-28 21:15:22,954 - 1677590122.954225 - 3 - 954 - root - log_demo1.py - WARNING - Warning 级别日志信息
+2023-02-28 21:15:22,955 - 1677590122.955223 - 4 - 955 - root - log_demo1.py - ERROR - Error 级别日志信息
+2023-02-28 21:15:22,981 - 1677590122.981153 - 30 - 981 - root - log_demo1.py - CRITICAL - Critical 级别日志信息
+2023-02-28 21:15:51,888 - 1677590151.888838 - 3 - 888 - root - log_demo1.py - <module> - WARNING - Warning 级别日志信息
+2023-02-28 21:15:51,889 - 1677590151.889836 - 4 - 889 - root - log_demo1.py - <module> - ERROR - Error 级别日志信息
+2023-02-28 21:15:51,889 - 1677590151.889836 - 4 - 889 - root - log_demo1.py - <module> - CRITICAL - Critical 级别日志信息
+2023-02-28 21:16:51,068 - 1677590211.068598 - 4 - 68 - root - log_demo1.py - <module> - WARNING - Warning 级别日志信息
+2023-02-28 21:16:51,068 - 1677590211.068598 - 4 - 68 - root - log_demo1.py - <module> - ERROR - Error 级别日志信息
+2023-02-28 21:16:51,068 - 1677590211.068598 - 4 - 68 - root - log_demo1.py - <module> - CRITICAL - Critical 级别日志信息
+2023-02-28 21:16:51,068 - 1677590211.068598 - 4 - 68 - root - log_demo1.py - demo - CRITICAL - Critical 级别日志信息
+2023-02-28 21:25:39,286 - 1677590739.286932 - 2 - 286 - root - log_demo1.py - <module> - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - WARNING - Warning 级别日志信息
+2023-02-28 21:25:39,287 - 1677590739.287929 - 3 - 287 - root - log_demo1.py - <module> - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - ERROR - Error 级别日志信息
+2023-02-28 21:25:39,287 - 1677590739.287929 - 3 - 287 - root - log_demo1.py - <module> - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - CRITICAL - Critical 级别日志信息
+2023-02-28 21:25:39,287 - 1677590739.287929 - 3 - 287 - root - log_demo1.py - demo - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - CRITICAL - Critical 级别日志信息
+2023-02-28 21:26:39,111 - 1677590799.111931 - 7 - 111 - root - log_demo1.py - <module> - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - WARNING - 30 - Warning 级别日志信息
+2023-02-28 21:26:39,111 - 1677590799.111931 - 7 - 111 - root - log_demo1.py - <module> - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - ERROR - 40 - Error 级别日志信息
+2023-02-28 21:26:39,112 - 1677590799.112929 - 8 - 112 - root - log_demo1.py - <module> - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - CRITICAL - 50 - Critical 级别日志信息
+2023-02-28 21:26:39,112 - 1677590799.112929 - 8 - 112 - root - log_demo1.py - demo - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - CRITICAL - 50 - Critical 级别日志信息
+2023-02-28 21:28:04,177 - 1677590884.177423 - 3 - 177 - root - log_demo1.py - <module> - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - DEBUG - 10 - Debug 级别日志信息
+2023-02-28 21:28:04,177 - 1677590884.177423 - 3 - 177 - root - log_demo1.py - <module> - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - INFO - 20 - Info 级别日志信息
+2023-02-28 21:28:04,177 - 1677590884.177423 - 3 - 177 - root - log_demo1.py - <module> - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - WARNING - 30 - Warning 级别日志信息
+2023-02-28 21:28:04,178 - 1677590884.178422 - 4 - 178 - root - log_demo1.py - <module> - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - ERROR - 40 - Error 级别日志信息
+2023-02-28 21:28:04,178 - 1677590884.178422 - 4 - 178 - root - log_demo1.py - <module> - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - CRITICAL - 50 - Critical 级别日志信息
+2023-02-28 21:28:04,178 - 1677590884.178422 - 4 - 178 - root - log_demo1.py - demo - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - CRITICAL - 50 - Critical 级别日志信息
+2023-02-28 21:29:44,356 - 1677590984.356496 - 3 - 356 - root - log_demo1.py - <module> - log_demo1 - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - DEBUG - 10 - Debug 级别日志信息
+2023-02-28 21:29:44,356 - 1677590984.356496 - 3 - 356 - root - log_demo1.py - <module> - log_demo1 - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - INFO - 20 - Info 级别日志信息
+2023-02-28 21:29:44,356 - 1677590984.356496 - 3 - 356 - root - log_demo1.py - <module> - log_demo1 - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - WARNING - 30 - Warning 级别日志信息
+2023-02-28 21:29:44,356 - 1677590984.356496 - 3 - 356 - root - log_demo1.py - <module> - log_demo1 - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - ERROR - 40 - Error 级别日志信息
+2023-02-28 21:29:44,356 - 1677590984.356496 - 3 - 356 - root - log_demo1.py - <module> - log_demo1 - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - CRITICAL - 50 - Critical 级别日志信息
+2023-02-28 21:29:44,357 - 1677590984.357493 - 4 - 357 - root - log_demo1.py - demo - log_demo1 - d:\ProgramWorkspace\PythonNotes\00-Python-Essentials\logging\log_demo1.py - CRITICAL - 50 - Critical 级别日志信息
