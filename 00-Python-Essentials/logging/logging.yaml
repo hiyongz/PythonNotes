@@ -2,16 +2,23 @@ version: 1
 formatters:
   simple:
     format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
 handlers:
   console:
     class: logging.StreamHandler
-    level: DEBUG
+    level: INFO
     formatter: simple
     stream: ext://sys.stdout
-loggers:
-  sampleLogger:
+  fileHandler:
+    class: logging.FileHandler
     level: DEBUG
-    handlers: [console]
+    formatter: simple
+    filename: yaml.log
+    encoding: utf8
+loggers:
+  mylogger:
+    level: DEBUG
+    handlers: [console,fileHandler]
     propagate: no
 root:
   level: DEBUG

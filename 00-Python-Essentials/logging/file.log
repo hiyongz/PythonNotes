@@ -1,2 +1,9 @@
 2023-03-02 21:07:17,930 - __main__ - ERROR - Error 级别日志信息
 2023-03-02 21:07:17,931 - __main__ - CRITICAL - Critical 级别日志信息
+20230304-09:42:27 - __main__ - ERROR - Error 级别日志信息
+20230304-09:42:27 - __main__ - CRITICAL - Critical 级别日志信息
+20230304-09:48:59 - __main__ - ERROR - Failure
+20230304-09:49:27 - __main__ - ERROR - Failure
+20230304-11:27:25 - __main__ - ERROR - Failure
+20230304-11:39:55 - __main__ - ERROR - Failure
+20230304-18:34:06 - __main__ - ERROR - Failure
