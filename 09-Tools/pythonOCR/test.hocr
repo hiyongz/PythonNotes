@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <title></title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <meta name='ocr-system' content='tesseract v5.0.0.20190623' />
+  <meta name='ocr-capabilities' content='ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_wconf'/>
+ </head>
+ <body>
+  <div class='ocr_page' id='page_1' title='image "D:\ProgramWorkspace\PythonNotes\09-Tools\testimg2.png"; bbox 0 0 566 279; ppageno 0'>
+   <div class='ocr_carea' id='block_1_1' title="bbox 63 52 266 70">
+    <p class='ocr_par' id='par_1_1' lang='eng' title="bbox 63 52 266 70">
+     <span class='ocr_line' id='line_1_1' title="bbox 63 52 266 70; baseline 0 -2; x_size 22.333334; x_descenders 5.5833335; x_ascenders 5.5833335">
+      <span class='ocrx_word' id='word_1_1' title='bbox 63 52 266 70; x_wconf 0'>ERRIWNHF-BR</span>
+     </span>
+    </p>
+   </div>
+   <div class='ocr_carea' id='block_1_2' title="bbox 325 197 481 215">
+    <p class='ocr_par' id='par_1_2' lang='eng' title="bbox 325 197 481 215">
+     <span class='ocr_line' id='line_1_2' title="bbox 325 197 481 215; baseline 0.006 -1; x_size 23.111111; x_descenders 5.7777777; x_ascenders 5.7777777">
+      <span class='ocrx_word' id='word_1_2' title='bbox 325 197 364 215; x_wconf 30'>TR</span>
+      <span class='ocrx_word' id='word_1_3' title='bbox 379 193 420 225; x_wconf 16'>AOR</span>
+      <span class='ocrx_word' id='word_1_4' title='bbox 422 193 463 225; x_wconf 51'>ARE</span>
+     </span>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

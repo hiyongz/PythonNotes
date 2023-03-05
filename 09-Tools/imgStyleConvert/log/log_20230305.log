@@ -1,0 +1,18 @@
+20230305-20:28:17 - appMain - INFO: ['D:\\ProgramWorkspace\\PythonNotes\\09-Tools\\imgStyleConvert\\version-management-notes-migrate-from-svn-to-git.md']
+20230305-20:28:17 - appMain - INFO: 当前目录下的Markdown文件：
+20230305-20:28:17 - appMain - INFO: D:\ProgramWorkspace\PythonNotes\09-Tools\imgStyleConvert\version-management-notes-migrate-from-svn-to-git.md
+20230305-20:28:17 - img_convert - INFO: 
+当前文件：D:\ProgramWorkspace\PythonNotes\09-Tools\imgStyleConvert\version-management-notes-migrate-from-svn-to-git.md
+20230305-20:28:17 - img_convert - INFO: <img src="version-management-notes-migrate-from-svn-to-git/SVNvsGIT.png" width="80%" height="80%" />
+
+20230305-20:28:17 - img_convert - INFO: ![](version-management-notes-migrate-from-svn-to-git/version-management-notes-migrate-from-svn-to-git/SVNvsGIT.png)
+
+20230305-20:28:17 - img_convert - INFO: ![image-20230209170246048](version-management-notes-migrate-from-svn-to-git\git-svn-clone.png)
+
+20230305-20:28:17 - img_convert - INFO: ![](version-management-notes-migrate-from-svn-to-git/version-management-notes-migrate-from-svn-to-git\git-svn-clone.png)
+
+20230305-20:28:17 - img_convert - INFO: ![](version-management-notes-migrate-from-svn-to-git/svn-ignore-to-git.png)
+
+20230305-20:28:17 - img_convert - INFO: ![](version-management-notes-migrate-from-svn-to-git/version-management-notes-migrate-from-svn-to-git/svn-ignore-to-git.png)
+
+20230305-20:28:17 - headline_edit - INFO: SVN项目迁移到Git方法
