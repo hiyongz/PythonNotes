@@ -1,7 +1,7 @@
 # Python文件及目录处理方法
-
-
 Python可以用于处理文本文件和二进制文件，比如创建文件、读写文件等操作。本文介绍Python处理目录以及文件的相关方法。
+
+<!--more-->
 
 
 下面先来介绍python目录处理相关方法。
@@ -71,6 +71,15 @@ Out：
 D:\ProgramWorkspace\PythonNotes\03-File-Handling\test_folder.py
 ```
 
+获取上级目录：
+
+```python
+dirpath     = os.path.dirname(os.path.realpath(__file__))
+parent_path = os.path.abspath(os.path.join(dirpath, ".."))
+```
+
+
+
 ### 5. 创建目录
 
 判断目录是否存在：
@@ -104,6 +113,7 @@ for root, dirs, files in os.walk(os.getcwd()):
 	print("#" * 10)
 print(os.listdir(os.getcwd()))
 ```
+
 
 
 ## 文件操作
@@ -158,18 +168,21 @@ True
 
 ### 4. 获取文件后缀
 
+获取文件名：
+
+```python
+fpath, fname = os.path.split("D:\\test\\newfile.txt")
+print(fpath) # D:\test
+print(fname) # newfile.txt
+```
+
+获取文件后缀
+
 ```python
 fname, fextension = os.path.splitext("D:\\newfile.txt")
-print(fname)
-print(fextension)
+print(fname) # D:\test\newfile
+print(fextension) # .txt
 ```
-Out：
-
-```python
-D:\newfile
-.txt
-```
-
 
 ### 5. 打开文件
 
@@ -242,7 +255,7 @@ file = open("newfile.txt", 'a')
 - readlines()：读取所有行，每行保存为列表的一个元素。
 
 ```python
-# 打开并读取文件
+## 打开并读取文件
 file = open("newfile.txt", 'r')
 
 for line in file:
@@ -285,21 +298,163 @@ Hello World!
 
 读取file对象的所有内容后，文本的光标会移动到最后，再次读取file需要将光标移到前面，使用 `file.seek(0, 0)` 方法可以将光标移到前面。还有一种解决方案是将读取的内容存一个在局部变量中。
 
-### 8. with语句
+### 8. 删除文件
+
+删除某个文件：
+
+- `os.remove(path)`
+- `os.unlink(path)`
+
+
+
+
+### 9. with语句
 
 with语句可用于异常处理，可以确保资源的适当获取及自动释放。使用with语句后就不需要调用`file.close()` 语句了，它会自动释放。
 
 ```python
 text1 = "Hello World!\n你好，世界！\r"
 text2 = ["To the time to life, \n", "rather than to life in time.\r"]
-# 写
+## 写
 with open("newfile.txt", "w") as file:
     file.write(text1)
     file.writelines(text2)
 
-# 读
+## 读
 with open("newfile.txt", "r+") as file:
 	print(file.read())
 ```
 
 with语句对处理大文件非常有用，比如10G大小的文件， with语句会进行上下文管理。
+
+
+
+## shutil目录和文件操作
+
+Python shutil库提供了对文件和目录复制、移动、删除、压缩、解压等操作。
+
+### 1. 复制文件或目录
+
+- `shutil.copy(src, dst)`：复制文件或目录
+- `shutil.copyfile(src, dst)`：复制文件，src和dst只能是文件
+- `shutil.copytree(src, dst, dirs_exist_ok=False)`：复制目录，默认dst目录不存在，否则会报错。
+
+示例：
+
+```python
+import os
+import shutil
+
+dirpath    = os.path.dirname(os.path.realpath(__file__))
+sourcedir  = os.path.join(dirpath, "shutil_a")
+sourcefile = os.path.join(dirpath, "shutil_a", "test.txt")        
+destdir    = os.path.join(dirpath, "shutil_b")
+destfile   = os.path.join(dirpath, "shutil_b", "test2.txt")
+## 复制文件或目录
+shutil.copy(sourcefile, destdir)        
+## 复制文件
+shutil.copyfile(sourcefile, destfile) 
+## 复制目录
+shutil.copytree(sourcedir, destfile, dirs_exist_ok=True) 
+```
+
+
+
+### 2. 移动文件或目录
+
+语法：`shutil.move(src, dst)`
+
+示例：
+
+```python
+import os
+import shutil
+
+dirpath    = os.path.dirname(os.path.realpath(__file__))
+sourcedir  = os.path.join(dirpath, "shutil_a")
+sourcefile = os.path.join(dirpath, "shutil_a", "test.txt")        
+destdir    = os.path.join(dirpath, "shutil_b")
+shutil.move(sourcefile, destdir)
+shutil.move(destdir, sourcedir)
+```
+
+### 3. 删除文件和目录
+
+删除某个文件使用 `os` 模块提供的remove和unlink方法：
+
+- `os.remove(path)`
+- `os.unlink(path)`
+
+删除目录使用 `shutil.rmtree` 方法：
+
+```python
+import os
+import shutil
+
+dirpath    = os.path.dirname(os.path.realpath(__file__))     
+destdir    = os.path.join(dirpath, "shutil_b")
+shutil.rmtree(destdir)
+```
+
+## shutil文件压缩、解压
+
+shutil库也支持文件压缩、解压操作，这个功能在Python 3.2版本引入。
+
+### 1. 压缩文件
+
+语法格式：
+
+```python
+shutil.make_archive(base_name, format[, root_dir[, base_dir[, verbose[, dry_run[, owner[, group[, logger]]]]]]])
+```
+
+- base_name：压缩包文件名
+- format：压缩包格式，支持zip，tar，bztar，gztar，xztar格式，可使用`shutil.get_archive_formats()`方法查看
+- root_dir：要压缩文件路径的根目录（默认当前目录）
+- base_dir：相对于root_dir的压缩文件路径（默认当前目录）
+
+示例：
+
+```python
+import os
+import shutil
+
+dirpath    = os.path.dirname(os.path.realpath(__file__))
+archive_name  = os.path.join(dirpath, "shutil_a")
+root_dir = archive_name
+shutil.make_archive(archive_name, 'zip', root_dir)
+```
+
+
+
+### 2. 解压文件
+语法格式：
+```python
+shutil.unpack_archive(filename[, extract_dir[, format]])
+```
+
+示例：
+
+```python
+import os
+import shutil
+
+dirpath      = os.path.dirname(os.path.realpath(__file__))
+archive_name = os.path.join(dirpath, "shutil_a.zip")
+extract_dir  = os.path.join(dirpath, "shutil_a")   
+shutil.unpack_archive(archive_name, extract_dir, 'zip')
+```
+
+
+
+参考文档：
+
+1. [https://docs.python.org/3/library/shutil.html](https://docs.python.org/3/library/shutil.html)
+
+
+
+
+
+
+
+
