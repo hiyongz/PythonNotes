@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 #-*-coding:utf-8-*-
 # @Time:    2021/10/1 22:26
 # @Author:  hiyongz
@@ -15,6 +14,7 @@ def img_convert(file):
     reg_img2 = r'(?<=!\[).*?(?=\])'
     reg_img3 = r'(?<=]\().*?(?=\))'# 图片名称
     reg_img4 = r'<center><b>.*<b></center>'# 图片名称
+    reg_heading = r'^#'# 标题
 
     with open(file, 'r', encoding='utf-8') as f:
         lines = []  # 创建了一个空列表，里面没有元素
@@ -37,6 +37,9 @@ def img_convert(file):
                 continue
             if re.search(reg_img4, line):
                 lines.append("\n")
+                continue
+            if re.search(reg_heading, line):
+                lines.append('#' + line)
                 continue
             lines.append(line)
         f.close()
@@ -78,7 +81,7 @@ def headline_edit(file):
 if __name__=='__main__':
     md_file = []
     if len(sys.argv) < 2:
-        path = os.getcwd()
+        path = os.path.dirname(os.path.realpath(__file__))
         md_file = glob.glob(path + "/*.md")
         print(md_file)
 
