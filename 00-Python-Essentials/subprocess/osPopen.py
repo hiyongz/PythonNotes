@@ -13,49 +13,38 @@ class testPopen():
         logging.basicConfig(level=logging.INFO, format='%(name)s - %(asctime)s - %(message)s', datefmt='%Y%m%d-%H:%M:%S')
 
     def test_ospopen(self):
-        # Define command and options wanted
         command = "netsh interface ip show address "
-        # Ask user for file name(s) - SECURITY RISK: susceptible to shell injection
         filename = input("Please input name of network adapter:\n")
-        # Run os.system and save return_value
         p = os.popen(command+filename, 'r')
-        # print('###############')
         # print('Return Value:', p.read())
 
     def test_ospopen2(self):
-        # Define command and options wanted
+        command = "netsh interface ip show address WAN | findstr IP"
+        p = os.popen(command, 'r')
+        print(p.read())        
+
+    def test_ospopen3(self):
         command = "netsh interface ip show address "
-        # Ask user for file name(s) - SECURITY RISK: susceptible to shell injection
         filename = input("Please input name of network adapter:\n")
-        # Run os.system and save return_value
         p = os.popen3(command+filename, 'r')
-        # print('###############')
         # print('Return Value:', p.read())
 
-    def test_popen(self):
-        # Define command and options wanted
-        command = "netsh interface ip show address "
-        # Ask user for file name(s) - SECURITY RISK: susceptible to shell injection
-        filename = input("Please input name of network adapter:\n")
-        # Run os.system and save return_value
-        # p = Popen(command+filename, stdout=PIPE).stdout
-        p = Popen(command+filename, shell=True, stdin=PIPE).stdin
-        print('###############')
+    def test_ospopen4(self):
+        command = 'echo "test" > test.txt ; del test.txt'
+        # command = 'dir'
+        # command = 'netsh interface ip show address WAN | findstr "IP"'
+        p = os.popen(command)
+        # p = Popen(command+filename, shell=True, stdin=PIPE).stdin
+        # logging.info('###############')
         print('Return Value:', p.read())
 
-    def test_ossystem(self):
-        # Define command and options wanted
-        command = "netsh interface ip show address "
-        # Ask user for file name(s) - SECURITY RISK: susceptible to shell injection
-        filename = input("Please input name of network adapter:\n")
-        # Run os.system and save return_value
-        return_value = os.system(command+filename, 'w')
-        print('###############')
-        print('Return Value:', return_value)
+        # out = os.popen(command)
+        # logging.info(out.read())
 
 
 if __name__ == '__main__':
     dir = testPopen()
     # dir.test_path()
     # dir.test_ospopen()
-    dir.test_popen()
+    dir.test_ospopen2()
+
