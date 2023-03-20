@@ -19,6 +19,7 @@ Python笔记
    python/python-notes-for-object-and-copy.md
    python/python-notes-for-file-and-direction-handling.md
    python/python-notes-for-xls2xlsx-with-pandas.md
+   python/python-notes-for-logging.md
    
 
 .. toctree::
