@@ -131,6 +131,22 @@ class wlanInfo(Loggers):
             return (data[half] + data[~half]) / 2
         return 0
 
+    def __signal2rssi(self, signal):
+        """将Wifi信号强度从质量(百分比)转换为RSSI(dBm)
+
+        :signal: 强度值
+        :return rssi: rssi值
+        """
+        if signal >= 100:
+            rssi = signal - 125
+        elif signal >= 95 and signal <= 99:
+            rssi = signal - 130
+        elif signal >= 80 and signal <= 94:
+            rssi = signal*1.65 - 195
+        elif signal < 80:
+            rssi = signal*0.49 - 99
+        return int(rssi)
+
     def wifi6_getrate_r(self):
         """返回无线的接收速率
 
@@ -182,6 +198,7 @@ class wlanInfo(Loggers):
         rate_recv_list = []
         rate_send_list = []
         signal_list    = []
+        rssi_list      = []
         # rate_recv_sum  = 0
         # rate_send_sum  = 0
         # signal_sum  = 0
@@ -197,9 +214,11 @@ class wlanInfo(Loggers):
                 rate_recv = self.wifi6_getrate_r()
                 rate_send = self.wifi6_getrate_s()
                 signal    = self.wifi6_getsignal()
+                rssi      = self.__signal2rssi(signal)
                 rate_recv_list.append(rate_recv)
                 rate_send_list.append(rate_send)
-                signal_list.append(signal)
+                rssi_list.append(rssi)
+                # signal_list.append(signal)
                 # rate_recv_sum += rate_recv
                 # rate_send_sum += rate_send
                 # signal_sum += signal
@@ -210,8 +229,9 @@ class wlanInfo(Loggers):
         # print("%s,%s,%s"%(rate_recv_avg,rate_send_avg,signal_avg))
         rate_recv_med = self.__get_median(rate_recv_list)
         rate_send_med = self.__get_median(rate_send_list)
-        signal_med = self.__get_median(signal_list)
-        print("%s,%s,%s"%(rate_recv_med,rate_send_med,signal_med))
+        rssi_med = self.__get_median(rssi_list)
+        # signal_med = self.__get_median(signal_list)
+        print("%s,%s,%s"%(rate_recv_med,rate_send_med,rssi_med))
 
 
 if __name__ == "__main__":
