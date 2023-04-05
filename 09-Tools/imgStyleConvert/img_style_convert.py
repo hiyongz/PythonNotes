@@ -59,7 +59,7 @@ class blogConvert():
     def img_convert(self, file):
         self.logger.info('\n当前文件：%s'%file)
         reg_img = r'(?<=src=\").*?(?=\")'# 图片名称
-        reg_img2 = r'(?<=!\[).*?(?=\])'
+        reg_img2 = r'(?<=!\[).*?(?=\]\()'
         reg_img3 = r'(?<=]\().*?(?=\))'# 图片名称
         reg_img4 = r'<center><b>.*<b></center>'# 图片名称
         reg_heading = r'^#'# 标题
