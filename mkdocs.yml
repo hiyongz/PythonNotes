@@ -7,37 +7,37 @@ site_description: # 站点描述
 site_author: # 作者
 copyright: # 版权声明
 
-theme: 
-    name: mkdocs
-    highlightjs: true
-    hljs_languages:
-        - yaml
-    analytics:
-        gtag: G-ABC123
-    shortcuts:       # 快捷键
-        help: 191    # ?
-        next: 78     # n
-        previous: 80 # p
-        search: 83   # s
-    navigation_depth: 2 # 侧边栏导航标题最大层级
-    nav_style: primary     # 顶部导航栏样式，可设置为 primary、dark 或者 light
-    locale: zh_CN # 语言配置，需要安装mkdocs[i18n]：pip install mkdocs[i18n]
-    
 # theme: 
-    # name: readthedocs
+    # name: mkdocs
     # highlightjs: true
     # hljs_languages:
         # - yaml
-        # - rust
     # analytics:
         # gtag: G-ABC123
-    # include_homepage_in_sidebar: True  # 在侧边栏菜单中列出主页。
-    # prev_next_buttons_location: both # 设置 “Next” 和 “Previous” 按钮的位置：bottom, top, both , or none
-    # navigation_depth: 4 # 侧边栏导航标题最大层级，默认4
-    # collapse_navigation: True # 只在当前页面的侧边栏中包含页面标题。
-    # titles_only: False # 只在侧边栏中包括文章标题，不包括所有子标题。默认值:False。
-    # sticky_navigation: True #侧边栏在滚动页面时随主页内容滚动
+    # shortcuts:       # 快捷键
+        # help: 191    # ?
+        # next: 78     # n
+        # previous: 80 # p
+        # search: 83   # s
+    # navigation_depth: 2 # 侧边栏导航标题最大层级
+    # nav_style: primary     # 顶部导航栏样式，可设置为 primary、dark 或者 light
     # locale: zh_CN # 语言配置，需要安装mkdocs[i18n]：pip install mkdocs[i18n]
+    
+theme: 
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - yaml
+        - rust
+    analytics:
+        gtag: G-ABC123
+    include_homepage_in_sidebar: True  # 在侧边栏菜单中列出主页。
+    prev_next_buttons_location: both # 设置 “Next” 和 “Previous” 按钮的位置：bottom, top, both , or none
+    navigation_depth: 4 # 侧边栏导航标题最大层级，默认4
+    collapse_navigation: True # 只在当前页面的侧边栏中包含页面标题。
+    titles_only: False # 只在侧边栏中包括文章标题，不包括所有子标题。默认值:False。
+    sticky_navigation: True #侧边栏在滚动页面时随主页内容滚动
+    locale: zh_CN # 语言配置，需要安装mkdocs[i18n]：pip install mkdocs[i18n]
     
 markdown_extensions:
     - toc:
