@@ -1,0 +1,93 @@
+site_name: Python笔记
+# site_url: http://127.0.0.1:8000
+repo_url: https://github.com/hiyongz/PythonNotes  # 仓库地址
+repo_name: GitHub # 仓库名称
+# edit_uri: blob/main/docs/ # 编辑路径
+site_description: # 站点描述
+site_author: # 作者
+copyright: # 版权声明
+
+# theme: 
+    # name: mkdocs
+    # highlightjs: true
+    # hljs_languages:
+        # - yaml
+    # analytics:
+        # gtag: G-ABC123
+    # shortcuts:       # 快捷键
+        # help: 191    # ?
+        # next: 78     # n
+        # previous: 80 # p
+        # search: 83   # s
+    # navigation_depth: 2 # 侧边栏导航标题最大层级
+    # nav_style: primary     # 顶部导航栏样式，可设置为 primary、dark 或者 light
+    # locale: zh_CN # 语言配置，需要安装mkdocs[i18n]：pip install mkdocs[i18n]
+    
+theme: 
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - yaml
+        - rust
+    analytics:
+        gtag: G-ABC123
+    include_homepage_in_sidebar: True  # 在侧边栏菜单中列出主页。
+    prev_next_buttons_location: both # 设置 “Next” 和 “Previous” 按钮的位置：bottom, top, both , or none
+    navigation_depth: 4 # 侧边栏导航标题最大层级，默认4
+    collapse_navigation: True # 只在当前页面的侧边栏中包含页面标题。
+    titles_only: False # 只在侧边栏中包括文章标题，不包括所有子标题。默认值:False。
+    sticky_navigation: True #侧边栏在滚动页面时随主页内容滚动
+    locale: zh_CN # 语言配置，需要安装mkdocs[i18n]：pip install mkdocs[i18n]
+    
+markdown_extensions:
+    - toc:
+        permalink: "#"
+        baselevel: 1
+        separator: "-"
+nav: 
+    - 主页: index.md
+    # - 关于我: about/about.md
+    
+    - Python基础知识:        
+        - "Python PEP增强提案": python/Python-Enhancement-Proposals.md
+        - "VSCode 配置 Python 环境": python/python-vscode-jupyter-notebook.md
+        - "List相关操作": python/python-notes-for-list.md
+        - "字符串操作": python/python-notes-for-string.md
+        - "Python内存驻留机制": python/python-notes-for-string-interning.md
+        - "属性值设置和判断变量是否存在": python/python-notes-for-variable-and-attribute.md
+        - "Python日期时间获取与转换": python/python-notes-for-datetime.md
+        - "Python 命令行参数解析之 Click": python/python-library-for-click.md
+        - "Python 命令行参数解析": python/python-notes-for-getopt.md
+        - "Python函数的参数类型": python/python-notes-for-passing-arguments-in-function.md
+        - "Python中的__new__、__init__以及metaclass": python/python-notes-for-new-and-init.md
+        - "Python对象及内存管理机制": python/python-notes-for-object-and-copy.md
+        - "Python文件及目录处理方法": python/python-notes-for-file-and-direction-handling.md
+        - "xls批量转换为xlsx格式文件": python/python-notes-for-xls2xlsx-with-pandas.md
+        - "Python日志系统logging使用介绍": python/python-notes-for-logging.md
+        - "Python中 os.popen、os.system和subprocess.popen方法介绍": python/python-notes-for-subprocess.md
+    - Python进阶:        
+        - "lambda匿名函数": python/python-notes-for-anonymous-function.md
+        - "Python装饰器": python/python-notes-for-decorator.md
+        - "Python闭包函数": python/python-notes-for-function-closures.md
+        - "Python反射函数": python/python-notes-for-reflection.md
+        - "Python上下文管理器": python/python-notes-for-context-manager.md
+        - "Python多线程与多进程": python/python-notes-for-multi-process.md
+        - "Python协程": python/python-notes-for-coroutines.md
+        - "Python正则表达式": python/linux-regular-expression-and-python-regex.md
+        - "正则表达式实现跨行匹配": python/linux-regular-expression-for-multiple-lines.md
+        - "Python json文件读写": python/python-library-for-json.md
+        - "Python yaml文件读写": python/python-library-for-pyyaml.md
+        - "Python Scapy 报文构造和解析": python/python-scapy-for-packet-build-and-parser.md
+        - "Python3 PIL库问题：ImageChops.difference返回None": python/python-notes-for-pil-problem.md
+        - "电子书创建：Sphinx + Github + ReadTheDocs": python/personal-blog-for-sphinx-readthedocs-and-github-guide.md
+        - "Python OCR工具pytesseract详解": python/python-notes-for-ocr-with-tesseract.md
+    - 数据结构与算法:
+        - "时间复杂度和空间复杂度": algorithm/algorithm-notes-for-algorithmic-complexity.md
+        - "数组、链表、栈和队列": algorithm/algorithm-notes-for-linear-list.md
+        - "哈希表、映射和集合": algorithm/algorithm-notes-for-hash-table.md
+        - "树、堆和图": algorithm/algorithm-notes-for-graph-tree-and-heap.md
+        - "常见搜索算法（一）：深度优先和广度优先搜索": algorithm/algorithm-notes-for-dfs-bfs.md
+        - "常见搜索算法（二）：二分查找": algorithm/algorithm-notes-for-binary-search.md
+        - "递归、动态规划": algorithm/algorithm-notes-for-dynamic-programming.md   
+        - "位运算": algorithm/algorithm-notes-for-bitwise-operation.md
+        - "排序算法": algorithm/algorithm-notes-for-sorting-algorithms.md
