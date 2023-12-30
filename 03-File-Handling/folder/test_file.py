@@ -34,6 +34,7 @@ class TestFile():
         print(os.access(self.newfilepath, os.X_OK))  # 文件是否有执行权限
 
     def file_split(self):
+        # 读取文件名称和后缀
         # fname, fextension = os.path.splitext(self.newfilepath)
         fname, fextension = os.path.splitext("D:\\newfile.txt")
         print(fname)
