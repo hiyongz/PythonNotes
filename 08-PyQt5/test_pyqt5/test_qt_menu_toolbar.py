@@ -8,6 +8,7 @@ import sys
 from PyQt5.QtWidgets import QMainWindow, QTextEdit, QAction, QApplication
 from PyQt5.QtWidgets import qApp,QMenu
 from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QMessageBox, QApplication
 
 class Example(QMainWindow):
 
@@ -106,6 +107,10 @@ class Example(QMainWindow):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = Example()
+    # 实例化提示框
+    msg_box = QMessageBox(QMessageBox.Information, "Information", "This is an information message.")
+    # 显示提示框
+    msg_box.exec_()
     sys.exit(app.exec_())
 
 

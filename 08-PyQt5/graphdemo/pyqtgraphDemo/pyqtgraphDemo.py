@@ -7,6 +7,10 @@ from PyQt5.QtGui import QPainter
 from PyQt5.QtWidgets import QApplication,QMainWindow,QMessageBox
 from PyQt5.QtChart import QChart, QChartView, QPieSeries
 from PyQt5 import uic
+from commonFunc import logger
+from commonFunc import loadFile
+from processFunc import getData
+
 
 import sys
 import math
@@ -16,13 +20,16 @@ import numpy as np
 
 class pyqtgraphDemo:
     def __init__(self):
-        file_name = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'pyqtgraphDemo.ui') # 当前ui文件的名称
+        mylogger = logger.Loggers()
+        file_name = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'ui/pyqtgraphDemo.ui') # 当前ui文件的名称
         self.ui = uic.loadUi(file_name) # 加载ui文件
         self.ui.pushButton_plot.clicked.connect(lambda:self.draw())  
         self.ui.pushButton_clear.clicked.connect(lambda:self.clear())  
         # 更改绘图界面的背景颜色 
         self.ui.graphicsView.setBackground('w') # 更改背景颜色为白色  
-
+        config = loadFile.LoadFile().loadConfig()
+        mylogger.logger.info(config)
+        # print(config)
     # def update_plot(self):
     #     self.time = self.time[1:]
     #     self.time.append(self.time[-1] + 1)
@@ -42,19 +49,22 @@ class pyqtgraphDemo:
       
         # 设置X和Y轴坐标，将图片显示到绘图界面中
 
-        # 数据1：时间（s）- 距离(km)
-        time_list = list(range(0, 500, 5))
-        initial_value = 1000  # 初始值km
-        length = 100  # 生成列表的长度
-        distance_list = []
-        # accumulated_list = [initial_value + randint(15 , 30) for i in range(length)]
-        for i in range(length):
-            initial_value = initial_value + randint(15 , 30)
-            distance_list.append(initial_value)
+        # 获取数据
+        time_list, distance_list, fspl_list = getData.GetData().getFSPL()
 
-        # 数据2：距离(km) — 自由空间传输损耗（dB）
-        fspl_list = list(map(self.fspl, distance_list))
-        print(fspl_list)
+        # # 数据1：时间（s）- 距离(km)
+        # time_list = list(range(0, 500, 5))
+        # initial_value = 1000  # 初始值km
+        # length = 100  # 生成列表的长度
+        # distance_list = []
+        # # accumulated_list = [initial_value + randint(15 , 30) for i in range(length)]
+        # for i in range(length):
+        #     initial_value = initial_value + randint(15 , 30)
+        #     distance_list.append(initial_value)
+
+        # # 数据2：距离(km) — 自由空间传输损耗（dB）
+        # fspl_list = list(map(self.fspl, distance_list))
+
 
         x = time_list
         y = distance_list
@@ -88,7 +98,6 @@ class pyqtgraphDemo:
         p2.setLabel('bottom'  , '距离', units='Km') # 设置底部Y的标签名字为功率
         self.line = p2.plot(distance_list, fspl_list, pen =pen2)
         ay = p2.getAxis('bottom')
-        print(distance_list)
         distance_ticks = list(range(1000, 4001, 100))
         ay.setTicks([[(v, str(v)) for v in distance_ticks ]])
         # Add a timer to simulate new temperature measurements 动态画图
@@ -155,10 +164,7 @@ class pyqtgraphDemo:
     def show(self): 
         self.ui.show()
     
-    def fspl(self, distance):
-        # 发射功率固定为28GHz
-        # FSPL = 20×lg(df) + 32.44        
-        return 20 * math.log10(distance * 28000) + 32.44
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
