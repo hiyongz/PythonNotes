@@ -1,5 +1,6 @@
 import os
 import random
+from time import sleep
 import pyqtgraph  as pg
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtCore import Qt
@@ -31,7 +32,7 @@ class QMessageBoxDemo:
     def draw(self):
         self.show_message_box()
         print("111222")
-        
+        sleep(5)
         self.close_message_box()
 
     # 显示界面
@@ -48,6 +49,7 @@ class QMessageBoxDemo:
         self.msg_box_hint.setWindowTitle('xx')
         self.msg_box_hint.setText('正在处理中，请稍后...')
         self.msg_box_hint.show()
+        # self.msg_box_hint.exec_()
         # self.timer.setSingleShot(True)
         # self.timer.timeout.connect(self.close_message_box)
         # self.timer.start(3000)
