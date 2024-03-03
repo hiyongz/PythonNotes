@@ -98,7 +98,7 @@ class testDateTime():
         Days = rrule.rrule(rrule.DAILY, dtstart = date1, until = date2).count()
         print(Days)
         # 秒数差 
-        Seconds = (date2 - date1).total_seconds  
+        Seconds = (date2 - date1).total_seconds()
         print(Seconds)
         # 毫秒数
         Microseconds = (date2 - date1).microseconds  
